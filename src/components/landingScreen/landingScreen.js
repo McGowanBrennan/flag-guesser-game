@@ -14,9 +14,9 @@ class landingScreen extends React.Component{
         this.handleClick = this.handleClick.bind(this)
     }
 
+    
         handleClick(){
             console.log(this.state.data)
-            var a = ["Mango","Orange","Banana","Apple","Grapes","Berry","Peach"]
             var res = data.sort(function() {
             return 0.5 - Math.random();
             });
