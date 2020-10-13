@@ -6,10 +6,9 @@ Flag guesser is a simple matching game where you match flags to their countries
 
 ### Live Version
 
-Play a live version of the game here: 
+Play a live version of the game here: https://main.dmf5e2kgltgd3.amplifyapp.com/
 
 ### Future Additions
 
 - Leaderboard using Firestore
 - Game options (more questions, more selections, etc)
-- Time keeper
