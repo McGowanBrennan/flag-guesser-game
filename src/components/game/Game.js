@@ -16,7 +16,7 @@ class Game extends React.Component{
             final: 0,
             componentDidMountActivated: false,
             numQuestions: this.props.totalQuestions,
-            currQuestion: 0,
+            currQuestion: 1,
             progress: 1
         }
         this.handleClick = this.handleClick.bind(this)
