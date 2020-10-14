@@ -1,6 +1,7 @@
 import React from "react"
 import "./game.css"
 import EndScreen from "../endScreen/EndScreen"
+import {ProgressBar} from 'react-bootstrap'
 
 
 class Game extends React.Component{
@@ -15,7 +16,8 @@ class Game extends React.Component{
             final: 0,
             componentDidMountActivated: false,
             numQuestions: this.props.totalQuestions,
-            currQuestion: 0 
+            currQuestion: 0,
+            progress: 0
         }
         this.handleClick = this.handleClick.bind(this)
         this.handleStartStopClick = this.handleStartStopClick.bind(this)
@@ -28,8 +30,10 @@ class Game extends React.Component{
 
     handleClick(e){
         let currQuestion = this.state.currQuestion
+        let percentComplete = (currQuestion/this.state.numQuestions) * 100
         this.setState({
-            currQuestion: currQuestion + 1
+            currQuestion: currQuestion + 1,
+            progress: percentComplete
         })
         console.log(e.target.id)
         if(e.target.id==="correct"){
@@ -173,6 +177,9 @@ class Game extends React.Component{
     }
 
     render(){
+        let styles = {
+            width: 100
+        }
         if(this.state.display.length===0){
             return(
             <EndScreen score={this.state.score} finalTime = {this.formatTime(this.state.runningTime)}/>
@@ -181,7 +188,12 @@ class Game extends React.Component{
 
         return(
             <div>
+                <div className="bar">
+                    <ProgressBar now = {this.state.progress} style={{width: "100vh"}} striped="true"/>
+                </div>
+                
                 <div className = "score">
+                    
                 <h3>{this.state.score}</h3>
                 <h2>{this.state.currQuestion} / {this.state.numQuestions}</h2>
                 <h4>{this.formatTime(this.state.runningTime)}</h4>

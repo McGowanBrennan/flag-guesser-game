@@ -146,4 +146,15 @@
   .row{
     padding-left:10%
   }
+
+  .bar .progress-bar{
+    width: 100vh;
+   
+    padding-top:5%;
+  }
   
+  .bar{
+    width: 100vh;
+    height: 5vh;
+    padding-left:20%
+  }
