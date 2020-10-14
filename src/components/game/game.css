@@ -128,11 +128,17 @@
     justify-content: left;
     display: flex;
   }
+
+  .score h2{
+    width: 100vh;
+    padding-left: 70%;
+    white-space: nowrap;
+  }
   
 
   .score h4{
-    width: 100vh;
-    padding-left: 150%;
+    
+    padding-left:50%;
     justify-content: right;
     display: flex;
   }

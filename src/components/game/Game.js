@@ -13,7 +13,9 @@ class Game extends React.Component{
             runningTime: 0,
             isRunning: false,
             final: 0,
-            componentDidMountActivated: false
+            componentDidMountActivated: false,
+            numQuestions: this.props.totalQuestions,
+            currQuestion: 0 
         }
         this.handleClick = this.handleClick.bind(this)
         this.handleStartStopClick = this.handleStartStopClick.bind(this)
@@ -25,11 +27,15 @@ class Game extends React.Component{
    
 
     handleClick(e){
+        let currQuestion = this.state.currQuestion
+        this.setState({
+            currQuestion: currQuestion + 1
+        })
         console.log(e.target.id)
         if(e.target.id==="correct"){
             let currScore = this.state.score
             this.setState({
-                score: currScore + 1
+                score: currScore + 1,
             })
             
             let oldDisplay = this.state.display
@@ -177,6 +183,7 @@ class Game extends React.Component{
             <div>
                 <div className = "score">
                 <h3>{this.state.score}</h3>
+                <h2>{this.state.currQuestion} / {this.state.numQuestions}</h2>
                 <h4>{this.formatTime(this.state.runningTime)}</h4>
                 </div>
             
