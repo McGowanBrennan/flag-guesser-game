@@ -1,11 +1,4 @@
-:root {
-    --backgroundColor: rgba(246, 241, 209);
-    --colorShadeA: rgb(106, 163, 137);
-    --colorShadeB: rgb(121, 186, 156);
-    --colorShadeC: rgb(150, 232, 195);
-    --colorShadeD: rgb(187, 232, 211);
-    --colorShadeE: rgb(205, 255, 232);
-  }
+
   
   @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700");
   * {
@@ -15,146 +8,96 @@
     box-sizing: border-box;
   }
   body {
-    font-family: 'OpenSans', sans-serif;
-    font-size: 18px;
-    line-height: 2;
-    display: flex;
-            align-items: center;
-            justify-content: center;
-    margin: 0;
-    min-height: 100vh;
-    background: var(--backgroundColor);
+    
+    
+   background: #ffffb3;
+  
+    
   }
+  
+
+
   button {
-    position: relative;
-    display: inline-block;
+    display: block;
+    background-color: #C7EAE4;
+    color:"#000000";
     cursor: pointer;
     outline: none;
-    border: 0;
-    vertical-align: middle;
-    text-decoration: none;
-    font-size: 18px;
-      color:var(--colorShadeA);
-    font-weight: 700;
-    text-transform: uppercase;
-    font-family: inherit;
-  }
-  
-  button.big-button {
-     padding: 1em 2em;
-     border: 2px solid var(--colorShadeA);
-    border-radius: 1em;
-    background: var(--colorShadeE);
-  transform-style: preserve-3d;
-     transition: all 175ms cubic-bezier(0, 0, 1, 1);
-  }
-  button.big-button::before {
-    position: absolute;
-    content: '';
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: var(--colorShadeC);
-    border-radius: inherit;
-      box-shadow: 0 0 0 2px var(--colorShadeB), 0 0.75em 0 0 var(--colorShadeA);
-   transform: translate3d(0, 0.75em, -1em);
-       transition: all 175ms cubic-bezier(0, 0, 1, 1);
+    border: none;
+    width: 400px;
+    height: 70px;
+    border-radius: 30px;
+    font-size: 1.5rem;
+    font-weight: 600;
+    background-size: 100% 100%;
+    box-shadow: 0 0 0 2px var(--dark) inset;
+    margin-bottom: 15px;
   }
   
   
-  button.big-button:hover {
-    background: var(--colorShadeD);
-    transform: translate(0, 0.375em);
+
+  .container {
+    display: grid;
+    grid-gap: 3px;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: 40px auto auto;
+    grid-template-areas: 
+          "s s b b b b b b b b t t"
+          "g g g g g g g g g g g g"
+          "f f f f f f f f f f f f";
   }
   
-  button.big-button:hover::before {
-    transform: translate3d(0, 0.75em, -1em);
+  .score {
+    grid-area: s;
   }
   
-  button.big-button:active {
-              transform: translate(0em, 0.75em);
+  .bar {
+    grid-area: b;
   }
   
-  button.big-button:active::before {
-    transform: translate3d(0, 0, -1em);
-    
-        box-shadow: 0 0 0 2px var(--colorShadeB), 0 0.25em 0 0 var(--colorShadeB);
+  .timer {
+    grid-area: t;
+  }
   
+  .game {
+    grid-area: g;
   }
 
-  .game-container{
-      width: 100vh;
-      height: 120vh;
-      padding-bottom: 20%;
-
+  .container2 {
+    display: grid;
+    height:100%;
+    grid-gap: 10px;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: auto auto auto;
+    grid-template-areas: 
+          "i i i i i i i i i i i i"
+          "a a a a a a b b b b b b"
+          "c c c c c c d d d d d d";
+  }
+  
+  .flag{
+    grid-area: i;
+  }
+  
+  .button1{
+    grid-area: a;
+  }
+  
+  .button2{
+    grid-area: b;
+  }
+  
+  .button3{
+    grid-area: c;
+  }
+  
+  .button4{
+    grid-area: d;
   }
 
-  .image-container{
-      padding-bottom: 5%;
-  }
-
-  .button-container{
-      width: 100vh;
-      height: 110vh;
-      padding-bottom: 20%;
-  }
-
-  .col-md-11 img{
-    padding-bottom: 5%;
+  .container2 > div {
+    display: flex;
     justify-content: center;
-    align-content: center;
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
+    align-items: center;
     
-  }
-  
-  .col-md-11{
-    padding-right: 15%;
-  }
-
-  .container{
-    height: 70vh;
-  }
-
-  .score{
-    display: flex;
-    width: 100vh;
-  }
-  .score h3{
-    justify-content: left;
-    display: flex;
-  }
-
-  .score h2{
-    width: 100vh;
-    padding-left: 70%;
-    white-space: nowrap;
-  }
-  
-
-  .score h4{
-    
-    padding-left:50%;
-    justify-content: right;
-    display: flex;
-  }
-
-  .row{
-    padding-left:10%
-  }
-
-  .bar .progress-bar{
-    width: 100vh;
-   
-    padding-top:5%;
-  }
-  
-  .bar{
-    width: 100vh;
-    height: 5vh;
-    padding-left:20%
-  }
+}

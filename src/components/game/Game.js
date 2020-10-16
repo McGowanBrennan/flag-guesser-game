@@ -4,6 +4,23 @@ import EndScreen from "../endScreen/EndScreen"
 import {ProgressBar} from 'react-bootstrap'
 
 
+/*
+<div className="bar">
+                    <ProgressBar now = {this.state.progress} style={{width: "100vh"}} striped="true"/>
+                </div>
+                
+                <div className = "score">
+                    
+                <h3>{this.state.score}</h3>
+                <h2>{this.state.currQuestion} / {this.state.numQuestions}</h2>
+                <h4>{this.formatTime(this.state.runningTime)}</h4>
+                </div>
+            
+                <div>
+                {this.state.display[0]}
+                </div>
+                */
+
 class Game extends React.Component{
     constructor(props){
         super(props)
@@ -30,6 +47,7 @@ class Game extends React.Component{
 
     handleClick(e){
         let currQuestion = this.state.currQuestion
+        
         let percentComplete = (currQuestion/this.state.numQuestions) * 100
         this.setState({
             currQuestion: currQuestion + 1,
@@ -84,64 +102,48 @@ class Game extends React.Component{
             //Randomize button layout so the correct answer isnt always first
             if(decider===0){
                 questionsList.push(
-                    <div class="container">
-                    <div class="row">
-                        <div class="col-md-11"><img src={url} width="256"
-                            height="192"/></div>
-                        <div class="col-md-6"><div class="col"><button class="big-button" id="correct" onClick={this.handleClick}>{this.state.flags[i].name}</button></div></div>
-                        <div class="col-md-6"><div class="col"><button class="big-button" id="wrong" onClick={this.handleClick}>{this.state.flags[i+1].name}</button></div></div>
-                        <div class="col-md-6"><div class="col"><button class="big-button" id="wrong" onClick={this.handleClick}>{this.state.flags[i+2].name}</button></div></div>
-                        <div class="col-md-6"><div class="col"><button class="big-button" id="wrong" onClick={this.handleClick}>{this.state.flags[i+3].name}</button></div></div>
-                    </div>
-                    <div class="row"></div>
-                </div>
+                    <div class="container2">
+                            <div class="flag"><img src={url} width="256" height="192"/></div>
+                            <div class="button1"><button onClick={this.handleClick} id="correct" >{this.state.flags[i].name}</button></div>
+                            <div class="button2"><button onClick={this.handleClick} id="wrong" >{this.state.flags[i+1].name}</button></div>
+                            <div class="button3"><button onClick={this.handleClick} id="wrong" >{this.state.flags[i+2].name}</button></div>
+                            <div class="button4"><button onClick={this.handleClick} id="wrong" >{this.state.flags[i+3].name}</button></div>
+                    </div> 
                 )
             }
             if(decider===1){
                 questionsList.push(
 
-                    <div class="container">
-                    <div class="row">
-                        <div class="col-md-11"><img src={url} width="256"
-                            height="192"/></div>
-                        <div class="col-md-6"><div class="col"><button class="big-button" id="wrong" onClick={this.handleClick}>{this.state.flags[i+1].name}</button></div></div>
-                        <div class="col-md-6"><div class="col"><button class="big-button" id="correct" onClick={this.handleClick}>{this.state.flags[i].name}</button></div></div>
-                        <div class="col-md-6"><div class="col"><button class="big-button" id="wrong" onClick={this.handleClick}>{this.state.flags[i+2].name}</button></div></div>
-                        <div class="col-md-6"><div class="col"><button class="big-button" id="wrong" onClick={this.handleClick}>{this.state.flags[i+3].name}</button></div></div>
-                    </div>
-                    <div class="row"></div>
-                </div>
+                    <div class="container2">
+                            <div class="flag"><img src={url} width="256" height="192"/></div>
+                            <div class="button1"><button onClick={this.handleClick} id="wrong" >{this.state.flags[i+1].name}</button></div>
+                            <div class="button2"><button onClick={this.handleClick} id="correct" >{this.state.flags[i].name}</button></div>
+                            <div class="button3"><button onClick={this.handleClick} id="wrong" >{this.state.flags[i+2].name}</button></div>
+                            <div class="button4"><button onClick={this.handleClick} id="wrong" >{this.state.flags[i+3].name}</button></div>
+                    </div> 
 
                 )
             }
             if(decider===2){
                 questionsList.push(
-                    <div class="container">
-                    <div class="row">
-                        <div class="col-md-11"><img src={url} width="256"
-                            height="192"/></div>
-                        <div class="col-md-6"><div class="col"><button class="big-button" id="wrong" onClick={this.handleClick}>{this.state.flags[i+1].name}</button></div></div>
-                        <div class="col-md-6"><div class="col"><button class="big-button" id="wrong" onClick={this.handleClick}>{this.state.flags[i+2].name}</button></div></div>
-                        <div class="col-md-6"><div class="col"><button class="big-button" id="correct" onClick={this.handleClick}>{this.state.flags[i].name}</button></div></div>
-                        <div class="col-md-6"><div class="col"><button class="big-button" id="wrong" onClick={this.handleClick}>{this.state.flags[i+3].name}</button></div></div>
-                    </div>
-                    <div class="row"></div>
-                </div>
+                    <div class="container2">
+                            <div class="flag"><img src={url} width="256" height="192"/></div>
+                            <div class="button1"><button onClick={this.handleClick} id="wrong" >{this.state.flags[i+2].name}</button></div>
+                            <div class="button2"><button onClick={this.handleClick} id="wrong" >{this.state.flags[i+1].name}</button></div>
+                            <div class="button3"><button onClick={this.handleClick} id="correct" >{this.state.flags[i].name}</button></div>
+                            <div class="button4"><button onClick={this.handleClick} id="wrong" >{this.state.flags[i+3].name}</button></div>
+                    </div> 
                 )
                 }
             if(decider===3){
                 questionsList.push(
-                    <div class="container">
-                    <div class="row">
-                        <div class="col-md-11"><img src={url} width="256"
-                            height="192"/></div>
-                        <div class="col-md-6"><div class="col"><button class="big-button" id="wrong" onClick={this.handleClick}>{this.state.flags[i+1].name}</button></div></div>
-                        <div class="col-md-6"><div class="col"><button class="big-button" id="wrong" onClick={this.handleClick}>{this.state.flags[i+3].name}</button></div></div>
-                        <div class="col-md-6"><div class="col"><button class="big-button" id="wrong" onClick={this.handleClick}>{this.state.flags[i+2].name}</button></div></div>
-                        <div class="col-md-6"><div class="col"><button class="big-button" id="correct" onClick={this.handleClick}>{this.state.flags[i].name}</button></div></div>
-                    </div>
-                    <div class="row"></div>
-                </div>
+                    <div class="container2">
+                            <div class="flag"><img src={url} width="256" height="192"/></div>
+                            <div class="button1"><button onClick={this.handleClick} id="wrong" >{this.state.flags[i+3].name}</button></div>
+                            <div class="button2"><button onClick={this.handleClick} id="wrong" >{this.state.flags[i+1].name}</button></div>
+                            <div class="button3"><button onClick={this.handleClick} id="wrong" >{this.state.flags[i+2].name}</button></div>
+                            <div class="button4"><button onClick={this.handleClick} id="correct" >{this.state.flags[i].name}</button></div>
+                    </div> 
                 )
                 }
             
@@ -187,24 +189,18 @@ class Game extends React.Component{
         }
 
         return(
-            <div>
-                <div className="bar">
-                    <ProgressBar now = {this.state.progress} style={{width: "100vh"}} striped="true"/>
-                </div>
-                
-                <div className = "score">
-                    
-                <h3>{this.state.score}</h3>
-                <h2>{this.state.currQuestion} / {this.state.numQuestions}</h2>
-                <h4>{this.formatTime(this.state.runningTime)}</h4>
-                </div>
             
-                <div>
-                {this.state.display[0]}
-                </div>
                 
+                
+                <div class="container">
+            <div class="score">{this.state.score}</div>
+            <div class="bar"><ProgressBar now = {this.state.progress} striped="true"/></div>
+            <div class="timer">{this.formatTime(this.state.runningTime)}</div>
+            <div class="game">{this.state.display[0]}</div>
+            
+                 </div>
 
-            </div>
+            
         )
     }
 }
