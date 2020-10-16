@@ -11,4 +11,4 @@ Play a live version of the game here: https://main.dmf5e2kgltgd3.amplifyapp.com/
 ### Future Additions
 
 - Leaderboard using Firestore
-- Mobile friendy layout
+
